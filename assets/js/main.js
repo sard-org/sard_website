@@ -1,29 +1,63 @@
-let images = [
-  "https://via.placeholder.com/400x250/FF5733/FFFFFF?text=Image+1",
-  "https://via.placeholder.com/400x250/33FF57/FFFFFF?text=Image+2",
-  "https://via.placeholder.com/400x250/3357FF/FFFFFF?text=Image+3",
-  "https://via.placeholder.com/400x250/FF33A1/FFFFFF?text=Image+4",
-  "https://via.placeholder.com/400x250/F3FF33/000000?text=Image+5",
-  "https://via.placeholder.com/400x250/F3FF33/000000?text=Image+6",
-];
+let sliderImages = Array.from(document.querySelectorAll(".slider .row"));
+// get number of slides
+let sliderCount = sliderImages.length;
+// set current slide
+let currentSlide = 1;
+// previous and next buttons
+let nextButton = document.getElementById("next");
+let prevButton = document.getElementById("prev");
 
-let index = 0;
-
-function updateSlider() {
-  document.getElementById("sliderImage").src = images[index];
-  document.getElementById("counter").innerText =
-    "0" + (index + 1) + " ... " + "0" + images.length;
-}
+let counter = (document.getElementById("counter").innerHTML = `
+  <div class="total-number">0${sliderCount}</div>
+  <span>...</span>
+  <div class="box-number">0${currentSlide}</div>
+`);
+theChecker();
+// next slide
 function nextSlide() {
-  index = (index + 1) % images.length;
-  updateSlider();
+  if (nextButton.classList.contains("disabled")) {
+    return false;
+  } else {
+    counter = document.getElementById("counter").innerHTML = `
+    <div class="total-number">0${sliderCount}</div>
+    <span>...</span>
+   <div class="box-number">0${++currentSlide}</div>
+  `;
+    theChecker();
+  }
 }
-
+// prev slide
 function prevSlide() {
-  index = (index - 1 + images.length) % images.length;
-  updateSlider();
+  if (prevButton.classList.contains("disabled")) {
+    return false;
+  } else {
+    counter = document.getElementById("counter").innerHTML = `
+    <div class="total-number">0${sliderCount}</div>
+    <span>...</span>
+    <div class="box-number">0${--currentSlide}</div>
+  `;
+    theChecker();
+  }
 }
-
+function theChecker() {
+  removeAllActice();
+  sliderImages[currentSlide - 1].classList.add("active");
+  if (currentSlide == 1) {
+    prevButton.classList.add("disabled");
+  } else {
+    prevButton.classList.remove("disabled");
+  }
+  if (currentSlide == sliderCount) {
+    nextButton.classList.add("disabled");
+  } else {
+    nextButton.classList.remove("disabled");
+  }
+}
+function removeAllActice() {
+  sliderImages.forEach(function (row) {
+    row.classList.remove("active");
+  });
+}
 // ######################accardions##########################
 let btn = document.querySelectorAll("#btn");
 let answer = document.querySelectorAll(".answer");
