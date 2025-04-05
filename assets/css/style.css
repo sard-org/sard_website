@@ -171,6 +171,8 @@ position: relative;
 .books .all-gallery .allnavGalllery {
   display: flex;
   justify-content: center;
+  z-index: 55;
+  position: sticky;
 }
 .books .all-gallery .navGallery {
   display: flex;

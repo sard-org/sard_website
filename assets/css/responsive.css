@@ -24,6 +24,7 @@
   footer .extra .phone {
     display: flex;
     justify-content: center;
+    padding-top: 15px;
   }
 }
 @media (max-width: 767px) {
