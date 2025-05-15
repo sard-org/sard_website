@@ -1,0 +1,28 @@
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.question {
+  background-color: #f9f9f9;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+}
+
+.answer.active {
+  max-height: 200px;
+  padding: 15px;
+}

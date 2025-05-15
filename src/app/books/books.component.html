@@ -1,0 +1,75 @@
+<!-- start books  -->
+<section class="books" id="Books">
+  <div class="container">
+    <div class="title">
+      <h2>كتبنا</h2>
+      <p>مجموعة متنوعة من الكتب الصوتية المختارة بعناية لتناسب كل الأذواق.</p>
+    </div>
+    <div class="all-gallery">
+      <div class="allnavGalllery">
+        <ul class="nav nav-pills navGallery" id="pills-tab" role="tablist">
+          <li role="presentation">
+            <button
+              [ngClass]="{
+                'nav-link': true,
+                activeCategory: selectedCategoryId === 'all'
+              }"
+              (click)="filterCategory('all')"
+            >
+              الكل
+            </button>
+          </li>
+          @for (item of allData; track item.id) {
+          <li (click)="filterCategory(item.id)">
+            <button
+              [ngClass]="{
+                'nav-link': true,
+                activeCategory: selectedCategoryId === item.id
+              }"
+              type="button"
+            >
+              {{ item.name }}
+            </button>
+          </li>
+          }
+        </ul>
+      </div>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="containe">
+          <div class="row">
+            @for (item of allBooks; track item.id) {
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <div class="image">
+                  <img [src]="item.cover" alt="" class="book-cover" />
+                </div>
+                <div class="cardBody">
+                  <h6 class="author">{{ item.Author.name }}</h6>
+                  <h4 title="{{ item.description }}">
+                    {{ item.description | textCut : 50 }}
+                  </h4>
+                  <p
+                    title="We Arabs have been preoccupied with the power and greatness of the technologically, scientifically and economically advanced countries, and their immensity and greatness of technologies! Not from the standpoint of striving to reach what they have achieved,"
+                  >
+                    {{ item.title }}
+                  </p>
+                  <h5>
+                    {{
+                      item.price
+                        ? item.price + " " + "جنيه"
+                        : item.price_points
+                        ? item.price_points + " " + "نقطة"
+                        : "مجاني"
+                    }}
+                  </h5>
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end books  -->

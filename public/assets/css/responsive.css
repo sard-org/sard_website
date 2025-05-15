@@ -1,0 +1,79 @@
+@media (max-width: 1199px) {
+  .hero .text h1 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 991px) {
+  .hero .img {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .hero .img img {
+    width: 50%;
+  }
+  .services .image {
+    display: flex;
+    justify-content: center;
+  }
+  .services .image img {
+    width: 50%;
+  }
+  footer .extra .image img {
+    width: 30%;
+  }
+  footer .extra .phone {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .books .containe .col-lg-4.col-md-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .books .card {
+    width: 80%;
+  }
+  
+  .books .card .image img {
+    width: 80%;
+  }
+  footer .nav{
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  footer .navLink ul{
+    flex-direction: column;
+    margin:0 ;
+    padding: 0;
+  }
+}
+@media (max-width:575px) {
+  .hero .text h1 {
+    font-size: 35px;
+  }
+}
+@media (max-width:387px) {
+  footer .extra .download-app .getStore {
+    flex-direction: column;
+    align-items: center;
+
+  }
+  footer .extra .download-app .getStore button {
+    width: 155px;
+    height: 73px;
+    padding: 2px 10px;
+  }
+  footer .extra .download-app .getStore button img {
+    width: 70%;
+  }
+  footer .extra .download-app .getStore button .getIt {
+    font-size: 11px;
+  }
+  footer .extra .download-app .getStore button p {
+    font-size: 14px;
+  }
+}

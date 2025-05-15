@@ -1,0 +1,235 @@
+<!-- start nav -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container" id="responsive_headline">
+    <img src="assets/image/logo.svg" alt="" />
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">الصفحة الرئيسية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Books">الكتب</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">الخدمات</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Categories">التصنيفات</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#FAQ">الأسئلة الشائعة</a>
+        </li>
+      </ul>
+    </div>
+    <div class="start-btn collapse navbar-collapse" id="navbarNav">
+      <button id="font-btn">حمّل الآن</button>
+    </div>
+  </div>
+</nav>
+<!-- end nav -->
+<!-- start hero  -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="text">
+          <h1>عِش تجربة قراءة مختلفة مع سرد</h1>
+          <p>
+            اكتشف عالمًا جديدًا بالكامل من المعرفة والإلهام مع "سرد"، تطبيقك
+            المفضل للمجموعة الواسعة من الكتب عبر مختلف الأنواع الأدبية. مع أدوات
+            مبتكرة مصممة لتحسين تجربة القراءة، انطلق في رحلة أدبية لا مثيل لها.
+          </p>
+          <button>احصل على الكتاب</button>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="img">
+          <img src="assets/image/pic.svg" alt="pic" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end hero  -->
+<!-- start categories -->
+<section class="category" id="Categories">
+  <div class="container">
+    <div class="title">
+      <h2>تصنيفاتنا</h2>
+      <p>نقدّم لك مجموعة متنوعة من التصنيفات لتسهيل وصولك للمحتوى المفضل لديك.</p>
+    </div>
+    <div class="slider">
+      <div class="slider-container">
+        <div class="row">
+
+            <div  class="col-lg-3 col-md-6" *ngFor="let post of displayedPosts">
+              <div class="card">
+                <div class="image">
+                  <img [src]="post.photo" alt="" class="img-style" />
+                </div>
+                <h4 style="margin-top: 10px;">{{post.name}}</h4>
+              </div>
+            </div>
+
+        </div>
+      </div>
+      <div class="arrows" >
+        <i class="fa-solid fa-arrow-right" (click)="nextPage()" [class.disabled]="currentPage === totalPages"></i>
+        <div class="counter" id="counter">
+          {{ currentPage }} : {{ totalPages }}
+        </div>
+        <i class="fa-solid fa-arrow-left"  (click)="prevPage()" [class.disabled]="currentPage === 1"></i>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end categories -->
+<!-- start services -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="title">
+      <h2>خدماتنا</h2>
+      <p>نقدّم لك تجربة قراءة صوتية ذكية مع تلخيصات بالذكاء الاصطناعي.</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="one">
+          <div class="num">01</div>
+          <div class="text">
+            <h3>قسم القراءة</h3>
+            <p>يحتوي على مكتبة صوتية للكتب.</p>
+          </div>
+        </div>
+        <div class="one">
+          <div class="num">02</div>
+          <div class="text">
+            <h3>أدوات المساعدة</h3>
+            <p>أدوات لتخصيص سرعة القراءة والصوت.</p>
+          </div>
+        </div>
+        <div class="one">
+          <div class="num">03</div>
+          <div class="text">
+            <h3>مكتبة الكتب</h3>
+            <p>تنظيم الكتب حسب الفئات.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="image">
+          <img src="assets/image/pic.svg" />
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="two">
+          <div class="text">
+            <h3>تلخيص الكتب</h3>
+            <p>تلخيص الكتب بالذكاء الاصطناعي</p>
+          </div>
+          <h4 class="num">04</h4>
+        </div>
+        <div class="two">
+          <div class="text">
+            <h3>سماع الكتب</h3>
+            <p>بنوفر لك الاستماع لكتبك المفضلة بجودة عالية</p>
+          </div>
+          <h4 class="num">05</h4>
+        </div>
+        <div class="two">
+          <div class="text">
+            <h3>الإشعارات</h3>
+            <p>تنبيهات بإصدارات جديدة.</p>
+          </div>
+          <h4 class="num">06</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end services -->
+<app-books></app-books>
+<!-- start questions -->
+  <app-faq></app-faq>
+<!-- end questions -->
+<!-- start footer -->
+<footer>
+  <div class="extra">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="image phone">
+            <img src="assets/image/Image Container (1).svg" alt="" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="download-app">
+            <p>حمّل تطبيقنا وابدأ في الاستمتاع</p>
+            <p class="special">مزايا متعددة</p>
+            <h5>
+              اكتشف الآلاف من الدورات التدريبية المجانية لتعزيز مهاراتك وتحقيق
+              أهدافك بسهولة. حمّل تطبيقنا الآن واستفد من عروض رائعة مباشرة على
+              جهازك.
+            </h5>
+            <div class="getStore">
+              <button class="apple">
+                <div>
+                  <img src="assets/image/Icon.svg" alt="" />
+                </div>
+                <div class="text">
+                  <p class="getIt">حمّله الآن</p>
+                  <p>متجر آبل</p>
+                </div>
+              </button>
+              <button class="google">
+                <div>
+                  <img src="assets/image/Icon (1).svg" alt="" />
+                </div>
+                <div class="text">
+                  <p class="getIt">حمّله الآن</p>
+                  <p>متجر جوجل</p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="image phone">
+            <img src="assets/image/Image Container.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="nav">
+      <div class="image">
+        <img src="assets/image/logo.svg" alt="" />
+      </div>
+      <div class="navLink">
+        <ul>
+          <li><a href="#home"> الصفحة الرئيسية</a></li>
+          <li><a href="#Books"> الكتب</a></li>
+          <li><a href="#services">الخدمات</a></li>
+          <li><a href="#Categories">التصنيفات</a></li>
+          <li><a href="#FAQ">الأسئلة الشائعة</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy-right">
+      <p>&#64;2025 سرد. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+
