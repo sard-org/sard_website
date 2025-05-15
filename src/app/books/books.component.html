@@ -7,8 +7,8 @@
     </div>
     <div class="all-gallery">
       <div class="allnavGalllery">
-        <ul class="nav nav-pills navGallery" id="pills-tab" role="tablist">
-          <li role="presentation">
+        <ul class="nav nav-pills navGallery">
+          <li>
             <button
               [ngClass]="{
                 'nav-link': true,
@@ -37,7 +37,7 @@
       <div class="tab-content" id="pills-tabContent">
         <div class="containe">
           <div class="row">
-            @for (item of allBooks; track item.id) {
+            @for (item of displayedPosts; track item.id) {
             <div class="col-lg-4 col-md-6">
               <div class="card">
                 <div class="image">
@@ -66,6 +66,11 @@
               </div>
             </div>
             }
+          </div>
+          <div class="arrows">
+            <i class="fa-solid fa-arrow-right" (click)="prevPage()" [class.disabled]="currentPage === 1"></i>
+            <div class="counter" id="counter">{{ currentPage }} / {{ totalPages }}</div>
+            <i class="fa-solid fa-arrow-left" (click)="nextPage()" [class.disabled]="currentPage === totalPages"></i>
           </div>
         </div>
       </div>

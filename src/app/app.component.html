@@ -33,7 +33,7 @@
       </ul>
     </div>
     <div class="start-btn collapse navbar-collapse" id="navbarNav">
-      <button id="font-btn">حمّل الآن</button>
+      <a href="#footer"> <button id="font-btn">حمّل الآن</button></a>
     </div>
   </div>
 </nav>
@@ -67,29 +67,37 @@
   <div class="container">
     <div class="title">
       <h2>تصنيفاتنا</h2>
-      <p>نقدّم لك مجموعة متنوعة من التصنيفات لتسهيل وصولك للمحتوى المفضل لديك.</p>
+      <p>
+        نقدّم لك مجموعة متنوعة من التصنيفات لتسهيل وصولك للمحتوى المفضل لديك.
+      </p>
     </div>
     <div class="slider">
       <div class="slider-container">
         <div class="row">
-
-            <div  class="col-lg-3 col-md-6" *ngFor="let post of displayedPosts">
-              <div class="card">
-                <div class="image">
-                  <img [src]="post.photo" alt="" class="img-style" />
-                </div>
-                <h4 style="margin-top: 10px;">{{post.name}}</h4>
+          <div class="col-lg-3 col-md-6" *ngFor="let post of displayedPosts">
+            <div class="card">
+              <div class="image">
+                <img [src]="post.photo" alt="" class="img-style" />
               </div>
+              <h4 style="margin-top: 10px">{{ post.name }}</h4>
             </div>
-
+          </div>
         </div>
       </div>
-      <div class="arrows" >
-        <i class="fa-solid fa-arrow-right" (click)="nextPage()" [class.disabled]="currentPage === totalPages"></i>
+      <div class="arrows">
+        <i
+          class="fa-solid fa-arrow-right"
+          (click)="prevPage()"
+          [class.disabled]="currentPage === 1"
+        ></i>
         <div class="counter" id="counter">
           {{ currentPage }} : {{ totalPages }}
         </div>
-        <i class="fa-solid fa-arrow-left"  (click)="prevPage()" [class.disabled]="currentPage === 1"></i>
+        <i
+          class="fa-solid fa-arrow-left"
+          (click)="nextPage()"
+          [class.disabled]="currentPage === totalPages"
+        ></i>
       </div>
     </div>
   </div>
@@ -160,10 +168,10 @@
 <!-- end services -->
 <app-books></app-books>
 <!-- start questions -->
-  <app-faq></app-faq>
+<app-faq></app-faq>
 <!-- end questions -->
 <!-- start footer -->
-<footer>
+<footer id="footer">
   <div class="extra">
     <div class="container">
       <div class="row">
@@ -232,4 +240,3 @@
   </div>
 </footer>
 <!-- end footer -->
-

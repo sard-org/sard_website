@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { DataService } from '../data.service';
 import { RouterLinkActive } from '@angular/router';
-import { NgClass } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { TextCutPipe } from '../pipe/text-cut.pipe';
 
 @Component({
@@ -12,6 +12,9 @@ import { TextCutPipe } from '../pipe/text-cut.pipe';
   styleUrl: './books.component.css',
 })
 export class BooksComponent {
+   currentPage = 1;
+  pageSize = 6;
+    displayedPosts: any[] = [];
   allData: any[] = [];
   allBooks: any[] = [];
   category_id: any;
@@ -22,6 +25,8 @@ export class BooksComponent {
   getBooks() {
     this.dataService.getBooks().subscribe((data: any) => {
       this.allBooks = data;
+      this.currentPage = 1;
+      this.updateDisplayedPosts()
     });
   }
   getCategory() {
@@ -43,6 +48,32 @@ export class BooksComponent {
   getBooksByCategory(categoryId: any) {
     this.dataService.getBooksByCategory(categoryId).subscribe((data: any) => {
       this.allBooks = data;
+      this.currentPage = 1;
+       this.updateDisplayedPosts();
     });
+  }
+  /**########## */
+    updateDisplayedPosts() {
+    const start = (this.currentPage - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    this.displayedPosts = this.allBooks.slice(start, end);
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updateDisplayedPosts();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updateDisplayedPosts();
+    }
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.allBooks.length / this.pageSize);
   }
 }
