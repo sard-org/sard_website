@@ -1,14 +1,20 @@
 import { CommonModule, NgFor, NgForOf } from '@angular/common';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
-import { BooksComponent } from "./books/books.component";
-import { FaqComponent } from "./faq/faq.component";
+import { BooksComponent } from './books/books.component';
+import { FaqComponent } from './faq/faq.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, SlickCarouselModule, NgFor, BooksComponent, FaqComponent],
+  imports: [
+    CommonModule,
+    NgFor,
+    BooksComponent,
+    FaqComponent,
+    NgxSpinnerModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -16,7 +22,7 @@ export class AppComponent {
   currentPage = 1;
   pageSize = 4;
   allData: any[] = [];
-    displayedPosts: any[] = [];
+  displayedPosts: any[] = [];
   constructor(private dataService: DataService) {
     this.dataService.getData().subscribe((data: any) => {
       console.log(data);
@@ -24,8 +30,6 @@ export class AppComponent {
       this.updateDisplayedPosts();
     });
   }
-
-
 
   updateDisplayedPosts() {
     const start = (this.currentPage - 1) * this.pageSize;

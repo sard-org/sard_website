@@ -1,8 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from '../data.service';
-import { RouterLinkActive } from '@angular/router';
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { TextCutPipe } from '../pipe/text-cut.pipe';
+
 
 @Component({
   selector: 'app-books',
@@ -12,9 +12,9 @@ import { TextCutPipe } from '../pipe/text-cut.pipe';
   styleUrl: './books.component.css',
 })
 export class BooksComponent {
-   currentPage = 1;
+  currentPage = 1;
   pageSize = 6;
-    displayedPosts: any[] = [];
+  displayedPosts: any[] = [];
   allData: any[] = [];
   allBooks: any[] = [];
   category_id: any;
@@ -26,7 +26,7 @@ export class BooksComponent {
     this.dataService.getBooks().subscribe((data: any) => {
       this.allBooks = data;
       this.currentPage = 1;
-      this.updateDisplayedPosts()
+      this.updateDisplayedPosts();
     });
   }
   getCategory() {
@@ -49,11 +49,11 @@ export class BooksComponent {
     this.dataService.getBooksByCategory(categoryId).subscribe((data: any) => {
       this.allBooks = data;
       this.currentPage = 1;
-       this.updateDisplayedPosts();
+      this.updateDisplayedPosts();
     });
   }
   /**########## */
-    updateDisplayedPosts() {
+  updateDisplayedPosts() {
     const start = (this.currentPage - 1) * this.pageSize;
     const end = start + this.pageSize;
     this.displayedPosts = this.allBooks.slice(start, end);

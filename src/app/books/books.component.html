@@ -55,11 +55,7 @@
                   </p>
                   <h5>
                     {{
-                      item.price
-                        ? item.price + " " + "جنيه"
-                        : item.price_points
-                        ? item.price_points + " " + "نقطة"
-                        : "مجاني"
+                      item.price ? item.price + " " + "جنيه" : item.price_points  ? item.price_points + " " + "نقطة"   : "مجاني"
                     }}
                   </h5>
                 </div>
